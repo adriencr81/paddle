@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<title>Accueil</title>
+</h:head>
+<body>
+	<ui:composition template="/WEB-INF/template/common.xhtml">
+		<ui:define name="content">
+		
+			<!-- image de fond-->
+
+			<div class="imgCopro">	
+			<h:graphicImage value="#{userInfoBean.blason}" />
+			</div> 
+			<!-- Actualités de la copropriété -->
+
+			<div class="actu">
+				<div class="event">
+					<div class="event_date">
+						<div class="event_date--day">18</div>
+						<div class="event_date--month">Novembre</div>
+						<div class="event_date--year">2022</div>
+					</div>
+					<div class="event_description">
+						<div class="event_description--title">Entretien de la
+							chaudière</div>
+						<div class="event_description--text">L'entretien annuel
+							obligatoire de la chaudière sera réalisé par un agent d'entretien
+							spécialisé le 18 novembre.</div>
+					</div>
+				</div>
+			</div>
+				
+					<!--Créer service -->
+
+			<div class="btnCreerUtilisateur" align="center">
+				<h:link outcome="creerService.xhtml">
+					<button class="creerCopro">Déposer une annonce</button>
+				</h:link>
+			</div>
+
+
+
+				<!-- Les annonces -->
+
+			<h1 class="titreIndex">Dernières annonces</h1>
+
+			<div class="serviceIndex">
+				<ui:param name="limit" value="3" />
+				<ui:repeat var="serv" value="#{listeServiceBean.listeService}"
+					varStatus="status">
+					<ui:fragment rendered="#{status.index lt limit}">
+						<h:form>
+							<h:commandLink action="#{afficherService.afficher(serv.id)}"
+								class="lienAnnonce">
+								<div class="carteIndex">
+
+									<div class="carte-image">
+										<h:graphicImage url="#{serv.imageService}" />
+									</div>
+								
+									<div class="carte-body">
+									
+										<div class="carte-titre">
+											<h2>#{serv.titre}</h2>
+										</div>
+
+										<div class="carte-prix">
+											<p>#{serv.prix}€</p>
+
+										</div>
+									</div>
+
+								</div>
+							</h:commandLink>
+						</h:form>
+					</ui:fragment>
+				</ui:repeat>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

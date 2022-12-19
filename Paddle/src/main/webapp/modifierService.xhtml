@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<head>
+	<meta charset="utf-8"></meta>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+	<h:outputStylesheet library="css" name="formulaire.css" />
+</head>
+<h:head>
+	<title>Modifier service</title>
+</h:head>
+<body>
+	<ui:composition template="/WEB-INF/template/common.xhtml">
+		<ui:define name="content">
+
+			<div class="formulaire">
+
+
+				<h:form id="modifierServiceForm" enctype="multipart/form-data"
+					class="titreFormulaire">
+
+					<div class="inputs">
+						<h:outputLabel value="Type de service : " />
+						<h:selectOneMenu class="champCopro"
+							value="#{modifierService.service.typeService}">
+							<f:selectItems value="#{modifierService.typesService}" />
+						</h:selectOneMenu>
+						
+						<h:outputLabel value="Ceci est une demande ? " />
+						<h:selectBooleanCheckbox class="champCopro"
+							value="#{modifierService.service.estUneDemande}" />
+
+						<h:outputLabel value="Titre : " />
+						<h:inputText class="champCopro" size="12" id="titreInput"
+							value="#{modifierService.service.titre}" />
+						<h:messages for="titreInput" />
+
+						<h:outputLabel value="Prix : " />
+						<h:inputText class="champCopro" size="15" id="prixInput"
+							value="#{modifierService.service.prix}" />
+						<h:messages for="prixInput" />
+
+						<h:outputLabel value="Date : " />
+
+						<h:inputText class="champCopro"
+							value="#{modifierService.service.dateEvenement}">
+							<f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+						</h:inputText>
+
+						<h:outputLabel value="Description : " />
+						<h:inputTextarea class="champCopro" size="250"
+							id="descriptionInput"
+							value="#{modifierService.service.description}" />
+						<h:messages for="descriptionInput" />
+
+						<h:outputLabel value="Image : " />
+						<h:inputFile class="champCopro"
+							value="#{modifierService.uploadedFile}">
+						</h:inputFile>
+					</div>
+
+
+					<h:commandButton class="creerCopro" value="Modifier mon service"
+						action="#{modifierService.modifier(modifierService.service)}" />
+
+				</h:form>
+
+			</div>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

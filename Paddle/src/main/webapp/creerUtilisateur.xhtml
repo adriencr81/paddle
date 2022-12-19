@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+<h:outputStylesheet library="css" name="formulaire.css" />
+</head>
+<h:head>
+	<title>Création d'un compte utilisateur</title>
+</h:head>
+<body>
+	<ui:composition template="/WEB-INF/template/common.xhtml">
+		<ui:define name="content">
+		
+	
+	<!--	
+			<div >
+        Change theme <ion-icon id="theme-logo" name="moon"></ion-icon>
+        <button value="changer"  
+						id="theme-button" />
+						      </div>
+						    -->
+			<div class="formulaire">
+			<h:form id="createAccountForm" class="titreFormulaire">
+			<h3>Créer un compte utilisateur</h3>
+			
+			
+			
+				<div class="inputs">
+					<h:inputText class="champCopro" size="10" id="firstNameInput"
+					a:placeholder="Nom"
+						value="#{creationUtilisateurBean.formCompte.nom}" />
+					<h:messages for="firstNameInput" />
+
+					<h:inputText class="champCopro" size="12" id="lastNameInput"
+					a:placeholder="Prénom"
+						value="#{creationUtilisateurBean.formCompte.prenom}" />
+					<h:messages for="lastNameInput" />
+
+					<h:inputText class="champCopro" size="15" id="emailInput"
+					a:placeholder="Email"
+						value="#{creationUtilisateurBean.formCompte.email}" />
+					<h:messages for="emailInput" />
+
+					<h:inputSecret class="champCopro" size="8" id="passwordInput"
+					a:placeholder="Mot de passe"
+						value="#{creationUtilisateurBean.formCompte.motDePasse}" />
+					<h:messages for="passwordInput" />
+
+					<h:inputSecret class="champCopro" size="8" id="confirmPasswordInput"
+					a:placeholder="Confirmer le mot de passe"
+						value="#{creationUtilisateurBean.formCompte.confirmerMdp}" />
+					<h:messages for="confirmPasswordInput" />
+				</div>
+					
+					<h:commandButton class="creerCopro" value="Créer mon compte"
+						action="#{creationUtilisateurBean.create()}" />
+			
+
+			</h:form>
+			</div>
+	<script type="module" src="resources/js/app.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      type="nomodule"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+	></script>
+			
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

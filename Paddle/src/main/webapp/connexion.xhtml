@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+<h:outputStylesheet library="css" name="formulaire.css" />
+</head>
+<h:head>
+	<title>Connexion</title>
+</h:head>
+<body>
+	<ui:composition template="/WEB-INF/template/common.xhtml">
+		<ui:define name="header">
+		</ui:define>
+		<ui:define name="content">
+		
+			<div class="formulaire">
+			<h:form id="createAccountForm" class="titreFormulaire">
+			<h3>Se Connecter</h3>
+			
+			
+			
+				<div class="inputs">
+					
+					
+			<h:inputText class="champCopro" id="emailInput" size="10" value="#{loginBean.email}"
+			a:placeholder="Email" />
+			<h:messages for="emailInput" />
+			
+			
+			<h:inputSecret class="champCopro" id="passwordInput" size="10" value="#{loginBean.motDePasse}"
+			a:placeholder="Mot de passe"/>
+			<h:messages for="passwordInput" />
+				</div>
+					
+				<h:commandButton class="creerCopro" value="Se connecter" action="#{loginBean.doLogin()}"/>
+
+			</h:form>
+			</div>
+			
+			
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
+

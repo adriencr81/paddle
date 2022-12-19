@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en">
+
+<h:head>
+	<title>Copro accounts List</title>
+</h:head>
+<body>
+	<ui:composition template="/WEB-INF/template/common.xhtml">
+		<ui:define name="content">
+			<f:metadata>
+			    <f:viewAction action="#{authenticator.check()}" /> <!-- Vérification si connecté et envoyé au login si ce n'est pas le cas -->
+			</f:metadata>
+			<h3>Accounts available</h3>
+			<hr />
+
+			<h:dataTable value="#{listeCoproManagedBean.listeCopros}" var="copro">
+
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+					#{copro.id}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Nom</f:facet>
+					#{copro.residence.nom}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Rue</f:facet>
+					#{copro.residence.rue}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Code postal</f:facet>
+					#{copro.residence.codePostal}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Ville</f:facet>
+					#{copro.residence.ville}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Nombre de logements</f:facet>
+					#{copro.residence.nombreLogements}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Blason</f:facet>
+					<h:graphicImage value="#{copro.pathToBlason}" height="50px"/>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Opérations" />
+					</f:facet>
+					<h:form>
+						<h:commandButton value="Supprimer"
+							action="#{listeCoproManagedBean.delete(copro.id)}" />
+					</h:form>
+				</h:column>
+
+			</h:dataTable>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

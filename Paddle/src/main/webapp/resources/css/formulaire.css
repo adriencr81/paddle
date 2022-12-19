@@ -1,0 +1,125 @@
+/*--------------------------------------------------------------
+#  formulaire création copro
+--------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+.formulaire{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: columns;
+	font-family: 'Roboto', sans-serif;
+	 margin-left: auto;
+   margin-right: auto;
+}
+
+.titreFormulaire{
+	 text-align:center;
+	 color:var(--gris);
+}
+
+
+.formulaire {
+  margin-top: 90px;
+  background-color: var(--bleu);
+  padding: 40px 60px;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  width:50%;
+  box-shadow: 5px 5px 0px #aaa; 
+}
+
+form .inputs {
+  display: flex;
+  flex-direction: column;
+   text-align:left;
+    padding: 15px;
+}
+
+form .champCopro{
+	 padding: 10px;
+  border:none;
+  border-radius: 5px;
+  background-color:var(--gris);
+  outline:none;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  max-width: 400px;
+  max-height:200px;
+  min-width: 200px;
+}
+
+form .creerCopro{
+  padding: 15px 25px;
+  border-radius: 10px;
+  border:none;
+  font-size: 15px;
+  color: var(--bleu);
+  background-color: var(--gris);
+  outline:none;
+  cursor:pointer;
+  margin:5px;
+}
+
+
+
+
+/*--------------------------------------------------------------
+  Media Queries
+--------------------------------------------------------------*/
+
+@media only screen and (max-width: 1100px) {
+	.formulaire{
+		 margin-top: 120px;
+		}
+}
+
+@media only screen and (max-width: 650px) {
+		.formulaire{
+		 margin-top: 230px;
+		}
+}
+
+/*--------------------------------------------------------------
+  Tableau
+--------------------------------------------------------------*/v
+.table-style  {
+  padding: 0 20px;
+  margin-left: 100px;
+ 
+
+}
+
+.column { 
+    color: var(--bleu); 
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid  var(--bleu);;
+    border: 1px solid  var(--bleu);;
+}
+
+.column:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+.table{
+
+ padding: 20px;
+ margin:auto;
+ border: 1px solid;
+color: var(--bleu);
+
+}
+
+.reservationTitre{
+	text-align: center;
+	padding: 40px;
+	font-size: 25px;
+	color: var(--bleu);
+	text-decoration: underline var(--rouge);  
+}
+
+

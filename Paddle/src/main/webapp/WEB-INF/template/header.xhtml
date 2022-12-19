@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<head>
+ <meta charset="utf-8"></meta>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+
+<h:outputStylesheet library="css" name="template.css" />
+</head>
+<ui:composition>
+	<nav class="navigation "> 
+	<!-- La partie Gauche LOGO-->
+
+	<h1 class="titre">#{userInfoBean.getUserCopro()}</h1>
+	<div
+		class="container d-flex align-items-center justify-content-between">
+	</div>
+
+	<!-- La partie navbar-->
+
+
+	<div class="liens">
+		<h:form>
+			<h:link class="nav-lien" outcome="index.xhtml">Accueil</h:link>
+			<c:if test="#{userInfoBean.userRole.equalsIgnoreCase('Admin')}">
+				<h:link class="nav-lien" outcome="pageAccueilAdmin.xhtml">Admin</h:link>
+			</c:if>
+			<h:link class="nav-lien" outcome="pageAccueilUtilisateur.xhtml">Ma page</h:link>
+			<h:link class="nav-lien" outcome="lesServices.xhtml">Annonces</h:link>
+			<h:commandLink class="nav-lien" action="#{loginBean.doLogout()}">Déconnexion</h:commandLink>
+		</h:form>
+	</div>
+	</nav>
+
+</ui:composition>
+</html>

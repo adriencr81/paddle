@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+<h:head>
+	<h:outputStylesheet library = "css" name="template.css"/>
+	<h:outputStylesheet library = "css" name="services.css"/>
+	<h:outputStylesheet library = "css" name="formulaire.css"/>
+	<h:outputStylesheet library = "css" name="stylesPageAccueilUtilisateur.css"/>
+	<h:outputStylesheet library = "css" name="paiement.css"/>
+	<c:if test="#{userInfoBean.userRole.equalsIgnoreCase('Admin')}">
+        <h:outputStylesheet library = "css" name="templateAlt.css"/>
+    </c:if>
+</h:head>
+
+<h:head>
+	<title>Template</title>
+	
+	<h:outputScript library="js" name="app.js" />
+</h:head>
+<h:body>
+
+	<div class="header">
+		<ui:insert name="header">
+			<ui:include src="header.xhtml" />
+
+		</ui:insert>
+	</div>
+
+
+	<div class="body">
+		<ui:insert name="content">
+			<ui:include src="contents.xhtml" />
+		</ui:insert>
+	</div>
+
+
+	<div class="footer">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+
+</h:body>
+</html>
